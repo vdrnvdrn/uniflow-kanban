@@ -1,0 +1,41 @@
+# Dependencies
+client/node_modules
+server/node_modules
+
+# Build
+client/dist
+dist-ssr
+*.local
+
+# Environment
+server/.env
+client/.env
+server/config/default.json
+
+# Database
+*.sqlite
+*.sqlite-journal
+*.backup-*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Misc
+pids.txt

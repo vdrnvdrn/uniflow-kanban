@@ -1,0 +1,8 @@
+{
+    "database":"kanban_test",
+    "username":"root",
+    "password":"1339",
+    "host":"localhost",
+    "dialect":"sqlite",
+    "storage":"./kanban.test.sqlite"
+}

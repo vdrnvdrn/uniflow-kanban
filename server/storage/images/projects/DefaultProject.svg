@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c5c2d3"/>
+      <stop offset="100%" stop-color="#aba8bb"/>
+    </linearGradient>
+    <radialGradient id="highlight" cx="35%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.25)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Frosted glass background -->
+  <circle cx="256" cy="256" r="256" fill="url(#bg)"/>
+
+  <!-- Glass highlight (top-left reflection) -->
+  <circle cx="256" cy="256" r="256" fill="url(#highlight)"/>
+
+  <!-- Subtle glass border -->
+  <circle cx="256" cy="256" r="254" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="3"/>
+
+  <!-- Kanban board: 3 columns with cards -->
+  <g fill="rgba(255,255,255,0.55)">
+    <!-- Column 1: 3 cards (Todo — tallest) -->
+    <rect x="118" y="135" width="76" height="52" rx="10"/>
+    <rect x="118" y="201" width="76" height="52" rx="10"/>
+    <rect x="118" y="267" width="76" height="52" rx="10"/>
+
+    <!-- Column 2: 2 cards (In Progress) -->
+    <rect x="218" y="135" width="76" height="52" rx="10"/>
+    <rect x="218" y="201" width="76" height="52" rx="10"/>
+
+    <!-- Column 3: 1 card (Done) -->
+    <rect x="318" y="135" width="76" height="52" rx="10"/>
+  </g>
+</svg>
