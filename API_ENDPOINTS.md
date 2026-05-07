@@ -1,31 +1,38 @@
-# UniFlow API Endpoints Documentation
+# Документация API UniFlow
 
-## Overview
-Complete API documentation for UniFlow project management system. All endpoints require Bearer token authentication (except login/signup).
+## Обзор
 
-## Base URL
+Полная документация API системы управления проектами UniFlow. Все endpoints требуют Bearer token аутентификации (кроме login/signup).
+
+## Базовый URL
+
 ```
 http://localhost:3000/api
 ```
 
-## Authentication Header
+## Заголовок аутентификации
+
 ```
 Authorization: Bearer {token}
 ```
 
 ---
 
-## 🔐 Authentication Endpoints
+## 🔐 Аутентификация
 
 ### POST /auth/signin
-Sign in user and get JWT token
+
+Вход в систему и получение JWT токена
+
 ```json
 {
   "username": "string",
   "password": "string"
 }
 ```
-**Response (201):**
+
+**Ответ (201):**
+
 ```json
 {
   "token": "eyJhbGc...",
@@ -36,28 +43,34 @@ Sign in user and get JWT token
 ```
 
 ### POST /auth/signup
-Create new user account
+
+Регистрация нового пользователя
+
 ```json
 {
-  "username": "string (min 3 chars)",
+  "username": "string (минимум 3 символа)",
   "email": "valid@email.com",
-  "password": "string (min 6 chars)",
+  "password": "string (минимум 6 символов)",
   "fullName": "string",
-  "profession": "string (optional)",
-  "image": "file (optional, max 5MB, JPEG/PNG/GIF only)"
+  "profession": "string (опционально)",
+  "image": "file (опционально, максимум 5MB, JPEG/PNG/GIF)"
 }
 ```
 
 ### GET /auth/signout
-Logout current user (adds token to blacklist)
+
+Выход из системы (добавляет токен в черный список)
 
 ---
 
-## 👥 User Endpoints
+## 👥 Пользователи
 
 ### GET /user/mydata
-Get current authenticated user's data
-**Response:**
+
+Получить данные текущего авторизованного пользователя
+
+**Ответ:**
+
 ```json
 {
   "id": 1,
@@ -72,13 +85,17 @@ Get current authenticated user's data
 ```
 
 ### GET /user/:id/projects
-Get all projects managed by user
+
+Получить все проекты, которыми управляет пользователь
 
 ### GET /user/:id/projectin
-Get all projects where user is a member
+
+Получить все проекты, где пользователь является участником
 
 ### POST /user/search
-Search for users by name or email
+
+Поиск пользователей по имени или email
+
 ```json
 {
   "query": "string"
@@ -86,8 +103,11 @@ Search for users by name or email
 ```
 
 ### GET /user/achievements
-Get user achievements and statistics
-**Response:**
+
+Получить достижения и статистику пользователя
+
+**Ответ:**
+
 ```json
 {
   "tasksDone": 10,
@@ -102,8 +122,11 @@ Get user achievements and statistics
 ```
 
 ### GET /user/:userId/action-stats
-Get user action statistics
-**Response:**
+
+Получить статистику действий пользователя
+
+**Ответ:**
+
 ```json
 {
   "total": 50,
@@ -120,10 +143,13 @@ Get user action statistics
 ## 📊 Admin Endpoints
 
 ### GET /admin/users
-Get all users with their project roles (Admin only)
+
+Получить всех пользователей с их ролями в проектах (только Admin)
 
 ### PUT /admin/users/:id/role
-Update user role (Admin only)
+
+Обновить роль пользователя (только Admin)
+
 ```json
 {
   "role": "manager|user"
@@ -132,44 +158,55 @@ Update user role (Admin only)
 
 ---
 
-## 📁 Project Endpoints
+## 📁 Проекты
 
 ### GET /project
-Get all projects (Admin/Manager) or member projects (User)
+
+Получить все проекты (Admin/Manager) или проекты-участника (User)
 
 ### POST /project
-Create new project (Admin/Manager only)
+
+Создать новый проект (только Admin/Manager)
+
 ```json
 {
   "name": "string",
-  "description": "string (optional)",
+  "description": "string (опционально)",
   "managerId": number
 }
 ```
 
 ### GET /project/:id
-Get project details
+
+Получить детали проекта
 
 ### PUT /project/:id
-Update project (Admin/Manager only)
+
+Обновить проект (только Admin/Manager)
+
 ```json
 {
-  "name": "string (optional)",
-  "description": "string (optional)"
+  "name": "string (опционально)",
+  "description": "string (опционально)"
 }
 ```
 
 ### DELETE /project/:id
-Delete project (Admin/Manager only)
+
+Удалить проект (только Admin/Manager)
 
 ### GET /project/:projectId/users
-Get all project members
+
+Получить всех участников проекта
 
 ### GET /project/:projectId/tasks
-Get all tasks in project
+
+Получить все задачи проекта
 
 ### POST /project/addUser
-Add user to project
+
+Добавить пользователя в проект
+
 ```json
 {
   "userId": number,
@@ -178,48 +215,60 @@ Add user to project
 ```
 
 ### GET /project/:projectId/statistics
-Get project statistics dashboard
+
+Получить дашборд статистики проекта
 
 ### GET /project/:projectId/actions
-Get action history for project (limited to 100 recent)
+
+Получить историю действий проекта (последние 100)
 
 ---
 
-## ✅ Task Endpoints
+## ✅ Задачи
 
 ### GET /task
-Get all tasks with user info (requires authentication)
+
+Получить все задачи с информацией о пользователях (требуется аутентификация)
 
 ### POST /task
-Create new task
+
+Создать новую задачу
+
 ```json
 {
   "name": "string",
-  "description": "string (optional)",
+  "description": "string (опционально)",
   "state": "Todo|Doing|Done",
   "projectId": number,
-  "userId": number (optional),
-  "deadline": "YYYY-MM-DD (optional)"
+  "userId": number (опционально),
+  "deadline": "YYYY-MM-DD (опционально)"
 }
 ```
 
 ### PUT /task/:id
-Update task (Admin/Manager can update all, User only own tasks)
+
+Обновить задачу (Admin/Manager могут обновлять все, User только свои)
+
 ```json
 {
-  "name": "string (optional)",
-  "description": "string (optional)",
+  "name": "string (опционально)",
+  "description": "string (опционально)",
   "state": "Todo|Doing|Done"
 }
 ```
-**Note:** Updating state automatically creates an Action record for history tracking
+
+**Примечание:** Обновление статуса автоматически создаёт запись Action для истории
 
 ### DELETE /task/:id
-Delete task (Admin/Manager/Task Owner)
+
+Удалить задачу (Admin/Manager/Владелец задачи)
 
 ### GET /task/:taskId/actions
-Get task state change history
-**Response:**
+
+Получить историю изменений статуса задачи
+
+**Ответ:**
+
 ```json
 [
   {
@@ -239,11 +288,14 @@ Get task state change history
 
 ---
 
-## 💬 Comment Endpoints
+## 💬 Комментарии
 
 ### GET /task/:taskId/comments
-Get all comments for a task
-**Response:**
+
+Получить все комментарии к задаче
+
+**Ответ:**
+
 ```json
 [
   {
@@ -262,84 +314,95 @@ Get all comments for a task
 ```
 
 ### POST /task/:taskId/comments
-Create comment on task
+
+Создать комментарий к задаче
+
 ```json
 {
-  "text": "string (max 5000 chars)"
+  "text": "string (максимум 5000 символов)"
 }
 ```
 
 ### DELETE /comment/:id
-Delete comment (Author/Manager/Admin only)
+
+Удалить комментарий (только Автор/Manager/Admin)
 
 ---
 
-## 📈 Action Endpoints (Activity History)
+## 📈 Действия (История активности)
 
 ### GET /task/:taskId/actions
-Get state change history for specific task
+
+Получить историю изменений статуса конкретной задачи
 
 ### GET /project/:projectId/actions
-Get action history for entire project (max 100 recent)
+
+Получить историю действий всего проекта (максимум 100 последних)
 
 ### GET /user/:userId/action-stats
-Get user's action statistics
+
+Получить статистику действий пользователя
 
 ---
 
-## 🔒 Security Features
+## 🔒 Меры безопасности
 
-- ✅ JWT token authentication with 24h expiration
-- ✅ Token blacklist for logout
-- ✅ Role-based access control (Admin/Manager/User)
-- ✅ Input validation on all endpoints
-- ✅ File upload validation (type and size)
-- ✅ Permission checks for resource access
+- ✅ JWT аутентификация (токены сроком 24 часа)
+- ✅ Чёрный список токенов для выхода
+- ✅ Ролевой доступ (Admin/Manager/User)
+- ✅ Валидация входных данных на всех endpoints
+- ✅ Валидация загружаемых файлов (тип и размер)
+- ✅ Проверка прав доступа к ресурсам
 
 ---
 
-## 📝 Error Handling
+## 📝 Обработка ошибок
 
-All errors return JSON with message:
+Все ошибки возвращаются в формате JSON с сообщением:
+
 ```json
 {
-  "message": "Error description",
+  "message": "Описание ошибки",
   "errors": [
     {
-      "msg": "Specific validation error",
+      "msg": "Конкретная ошибка валидации",
       "param": "field_name"
     }
   ]
 }
 ```
 
-Common HTTP Status Codes:
-- `200` - Success
-- `201` - Created
-- `400` - Bad Request (validation error)
-- `401` - Unauthorized (missing/invalid token)
-- `403` - Forbidden (insufficient permissions)
-- `404` - Not Found
-- `500` - Server Error
+Распространённые HTTP статусы:
+
+- `200` — Успешно
+- `201` — Создано
+- `400` — Неверный запрос (ошибка валидации)
+- `401` — Не авторизован (отсутствует/неверный токен)
+- `403` — Доступ запрещён (недостаточно прав)
+- `404` — Не найдено
+- `500` — Ошибка сервера
 
 ---
 
-## 🚀 Example Usage
+## 🚀 Примеры использования
 
-### Login
+### Вход в систему
+
 ```bash
 curl -X POST http://localhost:3000/api/auth/signin \
   -H "Content-Type: application/json" \
   -d '{"username":"admin","password":"password"}'
 ```
 
-### Get My Data
+### Получить мои данные
+
 ```bash
 curl http://localhost:3000/api/user/mydata \
   -H "Authorization: Bearer {token}"
 ```
 
-### Create Task
+### Создать задачу
+
 ```bash
 curl -X POST http://localhost:3000/api/task \
   -H "Authorization: Bearer {token}" \
@@ -352,7 +415,8 @@ curl -X POST http://localhost:3000/api/task \
   }'
 ```
 
-### Get Task History
+### Получить историю задачи
+
 ```bash
 curl http://localhost:3000/api/task/1/actions \
   -H "Authorization: Bearer {token}"
@@ -360,35 +424,42 @@ curl http://localhost:3000/api/task/1/actions \
 
 ---
 
-## 📋 Validation Rules
+## 📋 Правила валидации
 
-### Username
-- Required, minimum 3 characters
-- Must be unique in database
+### Имя пользователя (Username)
+
+- Обязательное, минимум 3 символа
+- Должно быть уникальным в базе данных
 
 ### Email
-- Required, must be valid email format
-- Must be unique in database
 
-### Password
-- Required, minimum 6 characters
-- Stored using bcrypt hashing
+- Обязательное, должен быть валидным форматом email
+- Должен быть уникальным в базе данных
 
-### Comment Text
-- Required, maximum 5000 characters
+### Пароль
 
-### File Upload
-- Accepted types: JPEG, PNG, GIF
-- Maximum size: 5MB
-- Auto-generated filename for security
+- Обязательное, минимум 6 символов
+- Хранится с использованием bcrypt хеширования
 
-### Task State
+### Текст комментария
+
+- Обязательное, максимум 5000 символов
+
+### Загрузка файла
+
+- Допустимые типы: JPEG, PNG, GIF
+- Максимальный размер: 5MB
+- Автоматически генерируется имя файла для безопасности
+
+### Статус задачи
+
 - Enum: "Todo", "Doing", "Done"
-- Any state change creates Action record
+- Любое изменение статуса создаёт запись Action
 
 ---
 
-## Last Updated
-February 16, 2025
+## Последнее обновление
 
-API Version: 1.0
+Февраль 2025
+
+Версия API: 1.0
