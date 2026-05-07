@@ -3,7 +3,7 @@
     "id": 1,
     "fullName": "Семён",
     "username": "semyon",
-    "password": "$2b$08$wdOCiAxfyvn5zhPUkuUhZeRG5wWtYnC1EVzqhoP.1zB27eNPcqz2e",
+    "password": "$2a$08$ZzvHfxazrRHkyKGBx.NG5eqE4ausc1Ha3muFyxhCYVfMm1i7sVXTe",
     "profession": "Project Manager",
     "email": "semyon@kando.com",
     "role": "manager"
@@ -12,7 +12,7 @@
     "id": 2,
     "fullName": "Михаил",
     "username": "mikhail",
-    "password": "$2b$08$wdOCiAxfyvn5zhPUkuUhZeRG5wWtYnC1EVzqhoP.1zB27eNPcqz2e",
+    "password": "$2a$08$ZzvHfxazrRHkyKGBx.NG5eqE4ausc1Ha3muFyxhCYVfMm1i7sVXTe",
     "profession": "Backend Developer",
     "email": "mikhail@kando.com",
     "role": "user"
@@ -21,7 +21,7 @@
     "id": 3,
     "fullName": "Леонид",
     "username": "leonid",
-    "password": "$2b$08$wdOCiAxfyvn5zhPUkuUhZeRG5wWtYnC1EVzqhoP.1zB27eNPcqz2e",
+    "password": "$2a$08$ZzvHfxazrRHkyKGBx.NG5eqE4ausc1Ha3muFyxhCYVfMm1i7sVXTe",
     "profession": "Frontend Developer",
     "email": "leonid@kando.com",
     "role": "user"
@@ -30,7 +30,7 @@
     "id": 4,
     "fullName": "Мария",
     "username": "maria",
-    "password": "$2b$08$wdOCiAxfyvn5zhPUkuUhZeRG5wWtYnC1EVzqhoP.1zB27eNPcqz2e",
+    "password": "$2a$08$ZzvHfxazrRHkyKGBx.NG5eqE4ausc1Ha3muFyxhCYVfMm1i7sVXTe",
     "profession": "UX Designer",
     "email": "maria@kando.com",
     "role": "user"
@@ -39,7 +39,7 @@
     "id": 5,
     "fullName": "Алена",
     "username": "alena",
-    "password": "$2b$08$wdOCiAxfyvn5zhPUkuUhZeRG5wWtYnC1EVzqhoP.1zB27eNPcqz2e",
+    "password": "$2a$08$ZzvHfxazrRHkyKGBx.NG5eqE4ausc1Ha3muFyxhCYVfMm1i7sVXTe",
     "profession": "Project Manager",
     "email": "alena@kando.com",
     "role": "manager"
@@ -48,7 +48,7 @@
     "id": 6,
     "fullName": "Ольга",
     "username": "olga",
-    "password": "$2b$08$wdOCiAxfyvn5zhPUkuUhZeRG5wWtYnC1EVzqhoP.1zB27eNPcqz2e",
+    "password": "$2a$08$ZzvHfxazrRHkyKGBx.NG5eqE4ausc1Ha3muFyxhCYVfMm1i7sVXTe",
     "profession": "QA Engineer",
     "email": "olga@kando.com",
     "role": "user"
@@ -57,7 +57,7 @@
     "id": 7,
     "fullName": "Админ",
     "username": "admin",
-    "password": "$2b$08$wdOCiAxfyvn5zhPUkuUhZeRG5wWtYnC1EVzqhoP.1zB27eNPcqz2e",
+    "password": "$2a$08$ZzvHfxazrRHkyKGBx.NG5eqE4ausc1Ha3muFyxhCYVfMm1i7sVXTe",
     "profession": "System Administrator",
     "email": "admin@kando.com",
     "role": "admin"
